@@ -29,6 +29,8 @@ uses [back-end](https://github.com/mrzlab630/what-time-is-it-node-js-back) (GeoL
 <br>
 **yarn start / npm start**
 <br>
+open **http://localhost:3009**
+<br>
 <br>
 
 ## The component uses
