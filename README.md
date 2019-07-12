@@ -1,11 +1,11 @@
-##What it is and what it's for.
+## What it is and what it's for.
 
-###It's a smart web clock.
+### It's a smart web clock.
 
 ![preview](https://github.com/mrzlab630/what-time-is-it-reactjs-front/blob/master/src/assets/imgs/preview.png?raw=true)
 
 
-###`what they can do`
+### `what they can do`
 
 **determine:**
 * ip adress 
@@ -19,7 +19,7 @@ uses [back-end](https://github.com/mrzlab630/what-time-is-it-node-js-back) (GeoL
 <br>
 
 
-##Development
+## Development
 
 **yarn install / npm install**
 <br>
@@ -33,9 +33,10 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 <br>
 
 
-### `By`
-**mrZ** - mrz@mrzlab630.pw
-
 ## License
 
 The MIT License.
+
+## By
+
+**mrZ** - mrz@mrzlab630.pw
