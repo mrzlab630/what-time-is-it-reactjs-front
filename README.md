@@ -37,7 +37,7 @@ uses [back-end](https://github.com/mrzlab630/what-time-is-it-node-js-back) (GeoL
 * [material-ui](https://material-ui.com/) 4.0.1
 * [Moment](http://momentjs.com/) 2.24.0
 * [moment-timezone](https://momentjs.com/timezone/) 2.24.0
-* [prop-types](https://reactjs.org/docs/typechecking-with-proptypes.html) 
+* [prop-types](https://reactjs.org/docs/typechecking-with-proptypes.html) 15.7.2
 * [SCSS](https://sass-lang.com/) 
 <br>
 <br>
