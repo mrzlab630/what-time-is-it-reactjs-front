@@ -26,6 +26,18 @@ uses [back-end](https://github.com/mrzlab630/what-time-is-it-node-js-back) (GeoL
 **yarn start / npm start**
 <br>
 
+
+## The component uses
+
+* [React.js](https://reactjs.org/) 16.8.6
+* [material-ui](https://material-ui.com/) 4.0.1
+* [Moment](http://momentjs.com/) 2.24.0
+* [moment-timezone](https://momentjs.com/timezone/) 2.24.0
+* [prop-types](https://reactjs.org/docs/typechecking-with-proptypes.html) 
+* [SCSS](https://sass-lang.com/) 
+
+
+
 ## Donation
 If this project help you reduce time to develop, you can give me a cup of coffee :)
 <br><br>
