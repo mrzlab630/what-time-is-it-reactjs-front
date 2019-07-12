@@ -1,0 +1,84 @@
+@import '../../assets/scss/_style.scss';
+
+$clockFountSize:4.75rem;
+
+.Clock{
+
+
+    display: inline-flex;
+    font-size: $clockFountSize;
+    cursor: default;
+
+
+  & .time{
+    color:$color;
+    font-size: $clockFountSize;
+
+
+    & input {
+      filter: invert(1);
+      color:$color-invert;
+      font-size: $clockFountSize;
+      text-align: right;
+      width: 105px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+      transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      margin-right: -15px;
+      display: inline-flex;
+
+    }
+
+  }
+
+  & .time-hour{
+    filter: invert(1);
+    color:$color-invert;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    padding: 10px 0;
+
+    &:hover{
+      border-bottom: 2px solid rgba(0, 0, 0, 1);
+    }
+
+  }
+
+  & .time-dotted{
+    padding: 10px 0;
+
+    & .time-dotted-pulsate{
+      animation: pulsate 2s ease-in-out infinite;
+    }
+
+  }
+
+
+
+
+
+}
+
+@keyframes pulsate {
+  from {opacity: 1}
+  50% {opacity: .8}
+  to {opacity: .3;}
+}
+
+@media (min-width: 1024px) and (max-width: 2080px) {
+  .Clock{
+    font-size: 4.35rem;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 1023px) {
+  .Clock{
+    font-size: 5.45rem;
+  }
+}
+
+
+@media all and (max-width: 320px) {
+  .Clock{
+    font-size: 4.15rem;
+  }
+}

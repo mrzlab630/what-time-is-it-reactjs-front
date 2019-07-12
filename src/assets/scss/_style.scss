@@ -1,0 +1,12 @@
+@import "vars";
+@import "fonts";
+@import "mixin";
+
+body{
+  font-family: 'Roboto', sans-serif;
+  background: $background;
+  color: $color;
+  font-size: 16px;
+}
+
+

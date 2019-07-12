@@ -1,0 +1,144 @@
+
+
+
+
+
+
+
+
+import React,{useReducer,useState} from 'react';
+import './ClockPage.scss';
+
+import {initialState,reducer} from '../../../store';
+
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
+import LinearProgress from '@material-ui/core/LinearProgress';
+
+import WrapCityTime from '../../../components/wrap-city-time';
+
+import {ApiServiceFretch} from '../../../utils';
+import useEffectAsync from '../../../components/useEffectAsync';
+
+
+
+const ClockPage = () =>{
+
+    const apiDAta = new ApiServiceFretch();
+
+    const [err,setErr] = useState(false);
+
+    useEffectAsync(async () => {
+
+        const getIpData = await apiDAta.getIpData();
+
+        if(getIpData.error){
+
+            setErr(getIpData.error);
+            return;
+        }
+
+
+        const itemData = getIpData ? JSON.parse(getIpData)[0] : false;
+
+        dispatch({ type: 'MY_CITY_NAME_AND_TIME_ZONE', payload: itemData});
+
+    }, []);
+
+    const [appState, dispatch] = React.useReducer(reducer, initialState);
+
+    const {myCity:{
+        name:myCityName,
+        countryCode:myCityCountry,
+        time:{
+            timeZone:myCityTimeZone,
+            dayOrNight:myDayOrNight
+        },
+        cityList:myCityList},
+        } =  appState;
+
+    console.log(appState);
+
+    const myCityAction = async (d) =>{
+
+        if(!d || !d.action){
+            return false;
+        }
+
+        switch (d.action.toLowerCase()) {
+
+            case 'newdatacity':
+
+                dispatch({ type: 'MY_CITY_NAME_AND_TIME_ZONE', payload: d.data });
+                return;
+
+            case 'city':
+
+                dispatch({ type: 'CHANGE_MY_CITY_NAME', payload: d.data });
+
+                if(d.data.length > 2){
+
+                    const getCityData = await apiDAta.getCityData(d.data);
+                    const getCityDataObj = JSON.parse(getCityData);
+
+                    if(getCityDataObj.error){
+                        setErr(getCityData);
+
+                    }else{
+
+                        if(getCityDataObj.length !== 0){
+                            dispatch({ type: 'ADD_MY_CITY_NAME', payload: JSON.parse(getCityDataObj)});
+                        }
+
+                    }
+
+                }
+
+
+                return;
+
+
+            case 'dayornight':
+
+
+                dispatch({ type: 'CHANGE_MY_CITY_DAY_OR_NIGHT', payload: d.data });
+                return;
+            default:
+                return false;
+        }
+    };
+
+
+    return( <div className={`ClockPage`}>
+
+        <Container fixed>
+
+            <Grid  container
+                   spacing={0}
+                   direction="column"
+                   alignItems="center"
+                   justify="center"
+                   style={{ minHeight: '100vh' }}>
+
+                <Grid item xs={3}>
+
+                    <WrapCityTime
+                        callBack={myCityAction}
+                        city={myCityName}
+                        timeZone={myCityTimeZone}
+                        cityList={myCityList}
+                        country={myCityCountry}
+                        onlyClock={myCityName ? false : <LinearProgress className={`progress`}/>}
+                    />
+                </Grid>
+
+            </Grid>
+
+        </Container>
+
+    </div>);
+};
+
+export default ClockPage;

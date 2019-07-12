@@ -1,0 +1,95 @@
+@import '../../../assets/scss/_style.scss';
+.ClockPage{
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .progress{
+    background: $color;
+
+    .MuiLinearProgress-barColorPrimary{
+      background:$btmBackground;
+    }
+  }
+
+  & .locationSearch{
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 2;
+    font-weight: 100;
+  }
+
+  & .line{
+    margin-top: 8px;
+    content: '';
+    filter: invert(1);
+    color:$color-invert;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    cursor: default;
+
+    &:hover{
+      border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+    }
+  }
+  & header{
+    height: 5vh;
+    padding: 10px 0;
+  }
+  & main{
+    height: 80vh;
+  }
+
+  & footer{
+    font-size: .9rem;
+    font-weight: 100;
+    margin-top: auto;
+
+    .mailto{
+      display: inline;
+      color: $color;
+      position: relative;
+      top: 0;
+      left: 0;
+      text-transform: none;
+      text-decoration: none;
+
+      &:hover{
+        @include  hoverItem;
+        font-weight: 400;
+      }
+    }
+
+  }
+
+}
+
+@media all and (max-width: 320px) {
+
+  .ClockPage{
+
+    &  footer{
+      font-size: .8rem;
+    }
+  }
+}
+
+@media (orientation: portrait)  and (max-width:1024px) {
+
+  .ClockPage{
+
+    & main{
+      height: 75vh;
+    }
+  }
+}
+
+@media (orientation: landscape)  and (max-width:1024px) {
+
+  .ClockPage{
+
+    & main{
+      height: 77vh;
+    }
+  }
+}
